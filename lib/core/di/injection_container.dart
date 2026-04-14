@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:zikermate/data/datasources/hive_local_datasource.dart';
 import 'package:zikermate/data/repositories/dhikr_repository_impl.dart';
 import 'package:zikermate/domain/repositories/dhikr_repository.dart';
@@ -8,6 +9,7 @@ import 'package:zikermate/domain/usecases/reset_count.dart';
 import 'package:zikermate/domain/usecases/set_goal.dart';
 import 'package:zikermate/domain/usecases/add_custom_dhikr.dart';
 import 'package:zikermate/presentation/bloc/dhikr_bloc.dart';
+import 'package:zikermate/presentation/bloc/settings_bloc.dart';
 
 /// GetIt dependency injection container — wires together all layers of Clean Architecture.
 final sl = GetIt.instance;
@@ -28,6 +30,11 @@ Future<void> setupDependencies() async {
   sl.registerLazySingleton(() => SetGoal(sl<DhikrRepository>()));
   sl.registerLazySingleton(() => AddCustomDhikr(sl<DhikrRepository>()));
 
+  // ── Plugins ──
+  sl.registerLazySingleton<FlutterLocalNotificationsPlugin>(
+    () => FlutterLocalNotificationsPlugin(),
+  );
+
   // ── BLoC (factory = new instance per widget tree) ──
   sl.registerFactory(() => DhikrBloc(
         getDhikrs: sl<GetDhikrs>(),
@@ -36,5 +43,9 @@ Future<void> setupDependencies() async {
         setGoal: sl<SetGoal>(),
         addCustomDhikr: sl<AddCustomDhikr>(),
         repository: sl<DhikrRepository>(),
+      ));
+
+  sl.registerFactory(() => SettingsBloc(
+        notificationsPlugin: sl<FlutterLocalNotificationsPlugin>(),
       ));
 }
