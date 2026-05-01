@@ -1,17 +1,61 @@
-# zikermate
+ZikrMate
 
-A new Flutter project.
+A simple and elegant Islamic Dhikr Counter App built with Flutter, designed to help users keep track of daily tasbih (zikr) effortlessly.
 
-## Getting Started
+Features
+Digital tasbih counter
+Persistent data storage (keeps count saved)
+Simple and user-friendly UI
+Minimalist Islamic design
+Smooth performance on Android devices
+Built With
+Flutter – Cross-platform UI toolkit
+Dart – Programming language
+Hive – Lightweight local database
+Screenshots
 
-This project is a starting point for a Flutter application.
+(Add your app screenshots here)
 
-A few resources to get you started if this is your first Flutter project:
+Installation
+Clone the repository:
+git clone https://github.com/zubaidkhandev/zikrmate.git
+Navigate to the project folder:
+cd zikrmate
+Get dependencies:
+flutter pub get
+Run the app:
+flutter run
+Project Structure
+lib/
+ ├── main.dart
+ ├── screens/
+ ├── widgets/
+ ├── models/
+ └── services/
+Usage
+Tap the button to increment your zikr count
+Reset the counter anytime
+Progress is saved automatically
+Contributing
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Contributions are welcome.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Fork the repository
+Create a new branch (feature/your-feature)
+Commit your changes
+Push to your branch
+Open a Pull Request
+License
+
+This project is licensed under the MIT License.
+
+Author
+
+Zubaid Khan
+Flutter Developer
+
+GitHub: https://github.com/zubaidkhandev
+
+Support
+
+If you find this project useful, consider giving it a star on GitHub.
